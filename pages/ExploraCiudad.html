@@ -5,20 +5,63 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>ExploraGo — Explora la Ciudad</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Tipografías: Poppins (títulos) + Inter (texto) -->
+        <link rel="preconnect" href="https://fonts.googleapis.com"><!-- Mejora la carga -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
         <link rel="stylesheet" href="../css/styles.css">
     </head>
     <body>
-        <nav>
-        <a href="../index.html">🏠 Home</a> |
-        <a href="login.html">🔑 Login</a> |
-        <a href="registro.html">📝 Registro</a> |
-        <a href="ExploraCiudad.html">Explora la Ciudad</a> |
-        <a href="ViveAventura.html">Vive la Aventura</a> |
-        <a href="SaboresTradiciones.html">Sabores & Tradiciones</a> |
-        <button>Logout</button>
+        <nav class="navbar">
+            <div class="nav-links">
+                <a href="../index.html">🏠 Home</a> <!-- // OJO: sube un nivel -->
+                <a href="login.html">🔑 Login</a>
+                <a href="registro.html">📄 Registro</a>
+                <a href="ExploraCiudad.html">Explora la Ciudad</a>
+                <a href="ViveAventura.html">Vive la Aventura</a>
+                <a href="SaboresTradiciones.html">Sabores & Tradiciones</a>
+            </div>
+            <div class="nav-actions">
+                <button class="btn btn--primary">Logout</button>
+            </div>
         </nav>
 
-        <h1>Explora la Ciudad</h1>
-        <p>Descubrí la cultura, los barrios históricos y los mejores tours urbanos.</p>       
+        <main>
+            <section class="hero">
+                <h1>Explora la Ciudad</h1>
+                <p>Descubrí la cultura, los barrios históricos y los mejores tours urbanos.</p> 
+            </section>      
+
+            <section class="cards container">
+                <article class="card card--ciudad">
+
+                    <div class="card__media">
+                        <img src="../images/ciudad-01.avif" 
+                        class="card__img">
+                        <span class="badge badge--city">Ciudad</span> 
+                    </div>
+
+                    <div class="card__body">
+                        <h3 class="card__title">Walking Tour: Casco Histórico</h3>
+
+                        <ul class="card__meta">
+                            <li>📍 Centro</li>
+                            <li>🕒 2 h</li>
+                            <li>⭐ 4.3</li>
+                        </ul>
+
+                        <p class="card__desc">
+                            Recorré los principales puntos históricos con guía local y tips para descubrir rincones ocultos.
+                        </p>
+                    
+                        <div class="card__footer">
+                            <span class="price">$12.500</span>
+                            <a href="#" class="btn btn--primary">Ver más</a>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </main>
     </body>
 </html>

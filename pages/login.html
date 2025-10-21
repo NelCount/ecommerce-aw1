@@ -5,32 +5,71 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>ExploraGo — Login</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Tipografías: Poppins (títulos) + Inter (texto) -->
+        <link rel="preconnect" href="https://fonts.googleapis.com"><!-- Mejora la carga -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
         <link rel="stylesheet" href="../css/styles.css">
     </head>
     <body>
-        <nav>
-        <a href="../index.html">🏠 Home</a> |
-        <a href="login.html">🔑 Login</a> |
-        <a href="registro.html">📝 Registro</a> |
-        <a href="ExploraCiudad.html">Explora la Ciudad</a> |
-        <a href="ViveAventura.html">Vive la Aventura</a> |
-        <a href="SaboresTradiciones.html">Sabores & Tradiciones</a> |
-        <button>Logout</button>
+        <nav class="navbar">
+            <div class="nav-links">
+                <a href="../index.html">🏠 Home</a> <!-- // OJO: sube un nivel -->
+                <a href="login.html">🔑 Login</a>
+                <a href="registro.html">📄 Registro</a>
+                <a href="ExploraCiudad.html">Explora la Ciudad</a>
+                <a href="ViveAventura.html">Vive la Aventura</a>
+                <a href="SaboresTradiciones.html">Sabores & Tradiciones</a>
+            </div>
+            <div class="nav-actions">
+                <button class="btn btn--primary">Logout</button>
+            </div>
         </nav>
 
-        <h1>Iniciar Sesión</h1>
-        <form action="" method="post">
-        <div>
-            <label for="txtEmail"><b>Email:</b></label><br>
-            <input type="email" id="txtEmail" name="txtEmail" placeholder="Ingrese su email" required />
-        </div>
-        <br>
-        <div>
-            <label for="txtPass"><b>Contraseña:</b></label><br>
-            <input type="password" id="txtPass" name="txtPass" placeholder="Ingrese su contraseña" required />
-        </div>
-        <br>
-        <button type="submit">Ingresar</button>
-        </form>
+        <!-- Clase auth-wrapper para centrar el contenido -->
+        <main class="container auth-wrapper">
+            <div class="auth">
+                <h1 class="auth__title">Iniciar Sesión</h1>
+
+                <!-- IMPORTANTE: la clase .form y los grupos .form__group -->
+                <form class="form" action="#" method="post" novalidate>
+                
+                <!-- Grupo: Email -->
+                <div class="form__group">
+                    <label class="form__label" for="email">Email:</label>
+                    <input
+                    class="form__input"           
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Ingresa tu email"
+                    required
+                    aria-describedby="email-help">
+                    <small id="email-help" class="form__help muted">
+                    Usá un email válido (ej: usuario@mail.com)
+                    </small>
+                </div>
+
+                <!-- Grupo: Contraseña -->
+                <div class="form__group">
+                    <label class="form__label" for="password">Contraseña:</label>
+                    <input
+                    class="form__input"           
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Ingresa tu contraseña"
+                    required>
+                </div>
+
+                <!-- Acciones -->
+                <div class="form__actions">
+                    <button type="submit" class="btn btn--primary">Ingresar</button>
+                </div>
+                </form>
+            </div>
+</main>
+
     </body>
 </html>

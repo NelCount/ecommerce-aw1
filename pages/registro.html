@@ -5,47 +5,87 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>ExploraGo — Registro</title>      
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Tipografías: Poppins (títulos) + Inter (texto) -->
+        <link rel="preconnect" href="https://fonts.googleapis.com"><!-- Mejora la carga -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
         <link rel="stylesheet" href="../css/styles.css">        
     </head>
     <body>
-        <nav>
-        <a href="../index.html">🏠 Home</a> |
-        <a href="login.html">🔑 Login</a> |
-        <a href="registro.html">📝 Registro</a> |
-        <a href="ExploraCiudad.html">Explora la Ciudad</a> |
-        <a href="ViveAventura.html">Vive la Aventura</a> |
-        <a href="SaboresTradiciones.html">Sabores & Tradiciones</a> |
-        <button>Logout</button>
+        <nav class="navbar">
+            <div class="nav-links">
+                <a href="../index.html">🏠 Home</a> <!-- // OJO: sube un nivel -->
+                <a href="login.html">🔑 Login</a>
+                <a href="registro.html">📄 Registro</a>
+                <a href="ExploraCiudad.html">Explora la Ciudad</a>
+                <a href="ViveAventura.html">Vive la Aventura</a>
+                <a href="SaboresTradiciones.html">Sabores & Tradiciones</a>
+            </div>
+            <div class="nav-actions">
+                <button class="btn btn--primary">Logout</button>
+            </div>
         </nav>
         
-        <h1>Registro de Usuario</h1>
-        <form action="" method="post">
-        <div>
-            <label for="txtNombre"><b>Nombre:</b></label><br>
-            <input type="text" id="txtNombre" name="txtNombre" placeholder="Ingrese su nombre" required />
+        <main class="container auth-wrapper">
+  <div class="auth">
+    <h1 class="auth__title">Registro de Usuario</h1>
+
+    <form class="form" action="#" method="post" novalidate>
+      <!-- Todos los campos (menos términos y botón) van dentro de grid-2 -->
+      <div class="grid-2">
+        <!-- Nombre -->
+        <div class="form__group">
+          <label class="form__label" for="name">Nombre:</label>
+          <input class="form__input" type="text" id="name" name="name" placeholder="Ingresa tu nombre" autocomplete="given-name" required>
         </div>
-        <br>
+
+        <!-- Apellido -->
+        <div class="form__group">
+          <label class="form__label" for="lastname">Apellido:</label>
+          <input class="form__input" type="text" id="lastname" name="lastname" placeholder="Ingresa tu apellido" autocomplete="family-name" required>
         </div>
-            <label for="txtApellido"><b>Apellido:</b></label><br>
-            <input type="text" id="txtApellido" name="txtApellido" placeholder="Ingrese su apellido" required />
+
+        <!-- Email -->
+        <div class="form__group">
+          <label class="form__label" for="email">Email:</label>
+          <input class="form__input" type="email" id="email" name="email" placeholder="usuario@mail.com" autocomplete="email" required aria-describedby="email-help">
+          <small id="email-help" class="form__help muted">Usá un email válido (ej: usuario@mail.com)</small>
         </div>
-        <br><br>
+
+        <!-- Contraseña -->
+        <div class="form__group">
+          <label class="form__label" for="password">Contraseña:</label>
+          <input class="form__input" type="password" id="password" name="password" placeholder="Mínimo 6 caracteres" minlength="6" autocomplete="new-password" required aria-describedby="pass-help">
+          <small id="pass-help" class="form__help muted">Mínimo 6 caracteres (letras y números)</small>
         </div>
-            <label for="txtEmail"><b>Email:</b></label><br>
-            <input type="email" id="txtEmail" name="txtEmail" placeholder="Ingrese su email" required />
+
+        <!-- Confirmar contraseña -->
+        <div class="form__group">
+          <label class="form__label" for="confirm">Confirmar Contraseña:</label>
+          <input class="form__input" type="password" id="confirm" name="confirm" minlength="6" autocomplete="new-password" required>
         </div>
-        <br><br>
+
+        <!-- Fecha de nacimiento -->
+        <div class="form__group">
+          <label class="form__label" for="birth">Fecha de Nacimiento:</label>
+          <input class="form__input" type="date" id="birth" name="birth" required>
         </div>
-            <label for="txtPass"><b>Contraseña:</b></label><br>
-            <input type="password" id="txtPass" name="txtPass" placeholder="Ingrese su contraseña" required />
-        </div>
-        <br><br>
-        <div>
-            <label for="txtFecha"><b>Fecha de nacimiento:</b></label><br>
-            <input type="date" id="txtFecha" name="txtFecha" required />
-        </div>
-        <br>
-        <button type="submit">Registrarme</button>
-        </form>
+      </div>
+
+      <!-- Términos -->
+      <div class="form__group terms">
+        <input type="checkbox" id="terms" required>
+        <label for="terms">Acepto Términos y Condiciones</label>
+      </div>
+
+      <!-- Botón -->
+      <div class="form__actions">
+        <button type="submit" class="btn btn--primary">Registrarme</button>
+      </div>
+    </form>
+  </div>
+</main>
+
     </body>
 </html>

@@ -1,0 +1,510 @@
+/* TEMA OSCURO - EXPLORAGO */
+
+:root {
+  /* Colores principales del tema */
+  --color-bg: #0B1020;         
+  --color-surface: #0F172A;     
+  --color-border: #1F2937;      
+  --color-text: #E5E7EB;        
+  --color-text-2: #94A3B8;      
+  --color-primary: #0EA5A6;     
+  --color-primary-900: #0B7C7D; 
+  --color-secondary: #F59E0B;   
+
+  /* Tipografías */
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-display: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  /* Escalas útiles */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --shadow-1: 0 2px 10px rgba(0,0,0,0.25);
+  --shadow-2: 0 8px 24px rgba(0,0,0,0.35);
+}
+
+
+/* BASE DEL PROYECTO - ExploraGo */
+
+/* Box model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; 
+}
+
+/*Reset mínimo + tipografía */
+html, body {
+  margin: 0;                      
+  padding: 0;
+  background: var(--color-bg);   
+  color: var(--color-text);       
+  font-family: var(--font-sans);  
+  font-size: 16px;                
+  line-height: 1.6;               
+}
+
+/*Enlaces accesibles */
+a {
+  color: #0a66c2;          
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+a:focus-visible {
+  outline: 2px solid #0a66c2; 
+  outline-offset: 2px;   
+}
+
+/* Titulares */
+h1, h2, h3 {
+  font-family: var(--font-display);  
+  margin: 0 0 0.75rem;
+  color: var(--color-text);          
+}
+
+/* Contenedor para centrar y limitar ancho */
+.container {
+  width: min(1200px, 92%); 
+  margin-inline: auto;     
+  padding: 1rem 0;         
+}
+
+/* Utilidades simples (opcionales) */
+.mt-2 { margin-top: .5rem; }
+.mt-4 { margin-top: 1rem; }
+.mb-4 { margin-bottom: 1rem; }
+
+
+/* BOTONES BÁSICOS REUTILIZABLES */
+
+/* Botón básico */
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-sm); 
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color .2s ease, transform .1s ease;
+}
+
+/* Botón principal con color de ExploraGo */
+.btn--primary {
+  background-color: var(--color-primary); 
+  color: #071b1b;                         
+  box-shadow: var(--shadow-1);
+}
+.btn--primary:hover {
+  background-color: var(--color-primary-900); 
+  transform: translateY(-1px);
+}
+.btn--primary:active { transform: translateY(0); }
+
+/* NAVBAR */
+
+.navbar {
+  background: var(--color-surface); /* Fondo un poco más claro que el body */
+  box-shadow: var(--shadow-1);      /* Sombra debajo */
+  padding: 0.8rem 1.5rem;           /* Espaciado interno */
+  display: flex;                    /* Flexbox para distribuir elementos */
+  justify-content: space-between;   /* Links a la izquierda, botón a la derecha */
+  align-items: center;              /* Centra verticalmente */
+  position: sticky;                 /* Permite que quede fijo arriba */
+  top: 0;
+  z-index: 1000;                    /* Que quede por encima de otros elementos */
+  border-bottom: 1px solid var(--color-border); /* Línea divisoria inferior */
+}
+
+/* Enlaces dentro del navbar */
+.navbar a {
+  color: var(--color-text);         
+  text-decoration: none;
+  margin-right: 1rem;               
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+/* hover */
+.navbar a:hover {
+  color: var(--color-primary);      /* Toma el color teal de la marca */
+}
+
+/* eliminamos el margen extra */
+.navbar a:last-child {
+  margin-right: 0;
+}
+
+/* Alineamos la parte derecha */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Espacio entre botones  */
+}
+
+/* FORMULARIOS - BASE OSCURA */
+
+.form {
+  max-width: 640px; 
+  margin: var(--space-6, 2rem) 0;
+  padding: 1.75rem;
+  background: var(--color-surface);
+  border: 1px solid rgba(255, 255, 255, 0.05); 
+  border-radius: var(--radius-md);
+
+  /* Sombra para profundidad */
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.4),             
+    0 0 12px rgba(14, 165, 166, 0.15);    
+}
+
+.form__group {
+  margin-bottom: 2rem;
+}
+
+.form__label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.form__input {
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  background: #0b1428;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.form__input::placeholder {
+  color: var(--color-text-2);
+}
+
+.form__input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(14,165,166,0.25);
+}
+
+.form__help {
+  display: inline-block;
+  margin-top: 0.35rem;
+}
+
+.form__actions {
+  margin-top: 1.25rem;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.form__actions .btn {
+  width: 100%;
+}
+
+/*  Centrado del login  */
+
+/* Altura de la navbar  */
+:root { 
+  --navbar-h: 64px; 
+}
+
+/* Contenedor general del login: centra horizontal y da aire superior */
+.auth-wrapper{
+  /* Ocupa alto de pantalla menos la navbar */
+  min-height: calc(100svh - var(--navbar-h));
+
+  /* Grid */
+  display: grid;
+  place-items: center;  
+
+  /* Respiro vertical (arriba/abajo) */
+  padding-top: 2rem;
+}
+
+/* Contiene H1 + formulario y controla el ancho máximo */
+.auth{
+  width: min(92vw, 540px); 
+}
+
+/*Título del login*/
+.auth__title{
+  margin: 0 0 1.25rem 0;    
+  font-family: var(--font-display);
+  color: var(--color-text);
+}
+
+
+@media (min-height: 700px){
+  .auth-wrapper{ place-items: center; } 
+}
+
+
+/*FORMULARIO DE REGISTRO*/
+
+/* Fila de 2 columnas*/
+.form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 1.5rem;                    
+  margin-bottom: 1.75rem;         
+}
+
+/* Para pantallas chicas, se apilan uno debajo del otro */
+@media (max-width: 640px) {
+  .form__row {
+    grid-template-columns: 1fr; 
+  }
+}
+
+/* Ajuste general del formulario */
+.form {
+  max-width: 680px; 
+  margin: var(--space-6, 2rem) auto;
+  padding: 2rem;
+  background: var(--color-surface);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-md);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.4),
+    0 0 12px rgba(14, 165, 166, 0.15);
+}
+
+/* Aumenta separación entre los grupos individuales */
+.form__group {
+  margin-bottom: 1.5rem;
+}
+
+/* Etiquetas */
+.form__label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Inputs */
+.form__input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: #0b1428;
+  color: var(--color-text);
+}
+
+/* Inputs al foco */
+.form__input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(14, 165, 166, 0.25);
+  outline: none;
+}
+
+/* Texto de ayuda */
+.form__help {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--color-text-2);
+}
+
+/* Checkbox de términos */
+.terms {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}
+
+/* Aumenta un poco el tamaño del check */
+.terms input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-primary);
+}
+
+/* Botón principal */
+.form__actions {
+  margin-top: 1.75rem;
+}
+
+.form__actions .btn {
+  width: 100%;
+}
+
+
+/* GRID de tarjetas (contenedor)*/
+
+.cards{
+  
+  display: grid;                                  
+  gap: 1.5rem;                                    
+  grid-template-columns: 1fr;                    
+  margin-block: 1.5rem 3rem;                        
+}
+
+@media (min-width: 680px){
+  .cards{ grid-template-columns: repeat(2, 1fr); }  
+}
+@media (min-width: 1040px){
+  .cards{ grid-template-columns: repeat(3, 1fr); }  
+}
+
+/* CARD base reusable*/
+.card{
+  background: var(--color-surface);                 
+  border: 1px solid var(--color-border);            
+  border-radius: var(--radius-md);                 
+  overflow: hidden;                                 
+  box-shadow: var(--shadow-1);                      
+  transition: transform .12s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.card:hover{
+  transform: translateY(-2px);                      
+  box-shadow: var(--shadow-2);                      
+  border-color: rgba(255,255,255,.08);
+}
+
+
+.card__media{
+  position: relative;                               
+  aspect-ratio: 16/9;                               
+  background: #0b1428;                              
+}
+.card__img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;                                
+  display: block;
+  filter: saturate(105%);
+}
+
+
+.badge{
+  position: absolute;
+  left: .75rem;
+  bottom: .75rem;
+  padding: .25rem .6rem;
+  font-size: .8rem;
+  font-weight: 600;
+  border-radius: 999px;
+  background: rgba(0,0,0,.5);
+  border: 1px solid rgba(255,255,255,.1);
+  backdrop-filter: blur(6px);                       
+}
+.badge--city{ color: #fcfcfc;}                     
+
+
+.card__body{
+  padding: 1rem 1rem 1.1rem;
+}
+.card__title{
+  margin: 0 0 .5rem;
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 2.2vw, 1.15rem);          
+  color: var(--color-text);
+}
+
+
+.card__meta{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin: 0 0 .65rem;
+  padding: 0;
+  list-style: none;                               
+  color: var(--color-text-2);                       
+  font-size: .92rem;
+}
+
+
+.card__desc{
+  margin: 0 0 1rem;
+  color: var(--color-text-2);
+  font-size: .95rem;
+}
+
+
+.card__footer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+}
+.price{
+  font-weight: 700;
+  letter-spacing: .2px;
+  color: var(--color-text);
+}
+
+.card--ciudad .badge{ background: rgba(19, 19, 18, 0.489); }
+.card--ciudad .price{ color: #bff9f4; }            
+
+/* VARIANTE: Vive la Aventura*/
+
+.badge--adventure{
+  background: rgba(19, 19, 18, 0.489); 
+  color: #fcfcfc;                      
+  border: 1px solid rgba(255,255,255,.1);
+}
+
+
+.card--aventura .price{
+  font-weight: 700;
+  letter-spacing: .2px;
+  color: #bff9f4;
+}
+
+
+.card--aventura .card__media::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,.35) 10%,
+    transparent 55%
+  );
+  pointer-events: none; 
+}
+
+/* VARIANTE: Sabores & Tradiciones*/
+
+.badge--sabores{
+  background: rgba(19, 19, 18, 0.489);  
+  color: #fcfcfc;                        
+  border: 1px solid rgba(255,255,255,.1); 
+}
+
+
+.card--sabores .price{
+  font-weight: 700;
+  letter-spacing: .2px;
+  color: #bff9f4;
+}
+
+
+.card--sabores .card__media::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,.35) 10%,
+    transparent 55%
+  );
+  pointer-events: none; 
+}
+
+/* margen izquierdo */
+section.hero{
+  padding-inline-start: 2rem;
+  text-align: left;
+}
+
+
+
+
+
+
+

@@ -6,21 +6,33 @@
         <title>ExploraGo</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href=""> 
+        <!-- Tipografías:  -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
-        <nav>
-            <a href="index.html">🏠 Home</a> |
-            <a href="pages/login.html">🔑 Login</a> |
-            <a href="pages/registro.html">📝 Registro</a> |
-            <a href="pages/ExploraCiudad.html">Explora la Ciudad</a> |
-            <a href="pages/ViveAventura.html">Vive la Aventura</a> |
-            <a href="pages/SaboresTradiciones.html">Sabores & Tradiciones</a> |
-            <button>Logout</button>
+        <nav class="navbar">
+            <div class="nav-links">
+                <a href="index.html">🏠 Home</a>
+                <a href="pages/login.html">🔑 Login</a>
+                <a href="pages/registro.html">📄 Registro</a>
+                <a href="pages/ExploraCiudad.html">Explora la Ciudad</a>
+                <a href="pages/ViveAventura.html">Vive la Aventura</a>
+                <a href="pages/SaboresTradiciones.html">Sabores & Tradiciones</a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="btn btn--primary">Logout</button>
+            </div>
         </nav>
-  
-        <h1>Descubre el mundo con ExploraGo</h1>
-        <h2>Reserva tours, excursiones y actividades inolvidables en un solo lugar</h2>
-        <p>Explora nuestras categorías y vive algo nuevo</p>
+
+        <section class="hero">
+            <h1>Descubre el mundo con ExploraGo</h1>
+            <h2>Reserva tours, excursiones y actividades inolvidables en un solo lugar</h2>
+            <p>Explora nuestras categorías y vive algo nuevo</p>
+        </section>
     </body>
 </html>

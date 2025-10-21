@@ -5,20 +5,63 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>ExploraGo — Vive la Aventura</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Tipografías: Poppins (títulos) + Inter (texto) -->
+        <link rel="preconnect" href="https://fonts.googleapis.com"><!-- Mejora la carga -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
         <link rel="stylesheet" href="../css/styles.css">
     </head>
     <body>
-        <nav>
-        <a href="../index.html">🏠 Home</a> |
-        <a href="login.html">🔑 Login</a> |
-        <a href="registro.html">📝 Registro</a> |
-        <a href="ExploraCiudad.html">Explora la Ciudad</a> |
-        <a href="ViveAventura.html">Vive la Aventura</a> |
-        <a href="SaboresTradiciones.html">Sabores & Tradiciones</a> |
-        <button>Logout</button>
+        <nav class="navbar">
+            <div class="nav-links">
+                <a href="../index.html">🏠 Home</a> <!-- // OJO: sube un nivel -->
+                <a href="login.html">🔑 Login</a>
+                <a href="registro.html">📄 Registro</a>
+                <a href="ExploraCiudad.html">Explora la Ciudad</a>
+                <a href="ViveAventura.html">Vive la Aventura</a>
+                <a href="SaboresTradiciones.html">Sabores & Tradiciones</a>
+            </div>
+            <div class="nav-actions">
+                <button class="btn btn--primary">Logout</button>
+            </div>
         </nav>
 
-        <h1>Vive la Aventura</h1>
-        <p>Conectate con la naturaleza y disfrutá actividades al aire libre llenas de adrenalina.</p>       
+        <section class="hero">
+            <h1>Vive la Aventura</h1>
+            <p>Conectate con la naturaleza y disfrutá actividades al aire libre llenas de adrenalina.</p>
+        </section>
+        <main>
+            <section class="cards container">
+                <article class="card card--aventura">
+
+                    <div class="card__media">
+                        <img src="../images/aventura-01.avif"  
+                        class="card__img">
+                        <span class="badge badge--adventure">Aventura</span>
+                    </div>
+
+                    <div class="card__body">
+                        <h3 class="card__title">Rafting en río de montaña</h3>
+
+                        <ul class="card__meta">
+                            <li>📍 Valle Verde</li>
+                            <li>🕒 3 h</li>
+                            <li>⭐ 5</li>
+                        </ul>
+
+                        <p class="card__desc">
+                            Descendé rápidos clase II–III con guías expertos y equipo incluido. 
+                            Ideal para grupos y principiantes que buscan adrenalina segura.
+                        </p>
+
+                        <div class="card__footer">
+                            <span class="price">$19.900</span>
+                            <a href="#" class="btn btn--primary">Ver más</a>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </main>       
     </body>
 </html>

@@ -23,7 +23,7 @@
                 <a href="SaboresTradiciones.html">Sabores & Tradiciones</a>
             </div>
             <div class="nav-actions">
-                <button class="btn btn--primary">Logout</button>
+                <button data-logout id="logoutBtn" type="button" class="btn btn--primary">Logout</button>
             </div>
         </nav>
 
@@ -34,34 +34,12 @@
             </section>      
 
             <section class="cards container">
-                <article class="card card--ciudad">
-
-                    <div class="card__media">
-                        <img src="../images/ciudad-01.avif" 
-                        class="card__img">
-                        <span class="badge badge--city">Ciudad</span> 
-                    </div>
-
-                    <div class="card__body">
-                        <h3 class="card__title">Walking Tour: Casco Histórico</h3>
-
-                        <ul class="card__meta">
-                            <li>📍 Centro</li>
-                            <li>🕒 2 h</li>
-                            <li>⭐ 4.3</li>
-                        </ul>
-
-                        <p class="card__desc">
-                            Recorré los principales puntos históricos con guía local y tips para descubrir rincones ocultos.
-                        </p>
-                    
-                        <div class="card__footer">
-                            <span class="price">$12.500</span>
-                            <a href="#" class="btn btn--primary">Ver más</a>
-                        </div>
-                    </div>
-                </article>
+                
             </section>
         </main>
+    <script src="../js/auth.js" defer></script>
+    <script type="module" src="/js/navbar.js"></script> 
+    <script src="../js/data/experiencias.js" defer></script>
+    <script src="../js/components/cards.js" defer></script>
     </body>
 </html>

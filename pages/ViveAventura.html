@@ -23,7 +23,7 @@
                 <a href="SaboresTradiciones.html">Sabores & Tradiciones</a>
             </div>
             <div class="nav-actions">
-                <button class="btn btn--primary">Logout</button>
+                <button data-logout id="logoutBtn" type="button" class="btn btn--primary">Logout</button>
             </div>
         </nav>
 
@@ -33,35 +33,12 @@
         </section>
         <main>
             <section class="cards container">
-                <article class="card card--aventura">
-
-                    <div class="card__media">
-                        <img src="../images/aventura-01.avif"  
-                        class="card__img">
-                        <span class="badge badge--adventure">Aventura</span>
-                    </div>
-
-                    <div class="card__body">
-                        <h3 class="card__title">Rafting en río de montaña</h3>
-
-                        <ul class="card__meta">
-                            <li>📍 Valle Verde</li>
-                            <li>🕒 3 h</li>
-                            <li>⭐ 5</li>
-                        </ul>
-
-                        <p class="card__desc">
-                            Descendé rápidos clase II–III con guías expertos y equipo incluido. 
-                            Ideal para grupos y principiantes que buscan adrenalina segura.
-                        </p>
-
-                        <div class="card__footer">
-                            <span class="price">$19.900</span>
-                            <a href="#" class="btn btn--primary">Ver más</a>
-                        </div>
-                    </div>
-                </article>
+                
             </section>
-        </main>       
+        </main>  
+    <script src="../js/auth.js" defer></script>   
+    <script type="module" src="/js/navbar.js"></script>
+    <script src="../js/data/experiencias.js" defer></script>
+    <script src="../js/components/cards.js" defer></script>
     </body>
 </html>

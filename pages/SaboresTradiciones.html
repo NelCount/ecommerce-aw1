@@ -23,7 +23,7 @@
                 <a href="SaboresTradiciones.html">Sabores & Tradiciones</a>
             </div>
             <div class="nav-actions">
-                <button class="btn btn--primary">Logout</button>
+                <button data-logout id="logoutBtn" type="button" class="btn btn--primary">Logout</button>
             </div>
         </nav>
 
@@ -33,34 +33,12 @@
         </section>
         <main>
             <section class="cards container">
-                <article class="card card--sabores">
-
-                    <div class="card__media">
-                        <img src="../images/sabores-01.avif"  
-                        class="card__img">
-                        <span class="badge badge--adventure">Sabores & Tradiciones</span>
-                    </div>
-
-                    <div class="card__body">
-                        <h3 class="card__title">Vinos y maridajes</h3>
-
-                        <ul class="card__meta">
-                            <li>📍 Cafayate</li>
-                            <li>🕒 4 h</li>
-                            <li>⭐ 5</li>
-                        </ul>
-
-                        <p class="card__desc">
-                            Descubrí los sabores del norte argentino con una degustación guiada 
-                            de vinos de altura y maridajes en bodegas boutique.
-                        </p>
-
-                        <div class="card__footer">
-                            <span class="price">$49.900</span>
-                            <a href="#" class="btn btn--primary">Ver más</a>
-                        </div>
-                    </div>
-                </article>
+                
             </section>
         </main>
+    <script src="../js/auth.js" defer></script>
+    <script type="module" src="/js/navbar.js"></script>
+    <script src="../js/data/experiencias.js" defer></script>
+    <script src="../js/components/cards.js" defer></script>
+    </body>        
 </html>

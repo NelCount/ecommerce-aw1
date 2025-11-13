@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1,
+    "categoria": "ciudad",
+    "titulo": "Walking Tour: Casco Histórico",
+    "descripcion": "Recorré los principales puntos históricos con guía local y tips para descubrir rincones ocultos.",
+    "precioPorPersona": 12500,
+    "minPersonas": 1,
+    "ubicacion": "Centro",
+    "img": "../images/ciudad-01.avif",
+    "badgeClass": "badge--city"
+  },
+  {
+    "id": 2,
+    "categoria": "aventura",
+    "titulo": "Rafting en las Sierras",
+    "descripcion": "Sentí la naturaleza y creá momentos inolvidables.",
+    "precioPorPersona": 70000,
+    "minPersonas": 1,
+    "ubicacion": "Potrerillos",
+    "img": "../images/aventura-01.avif",
+    "badgeClass": "badge--adventure"
+  },
+  {
+    "id": 3,
+    "categoria": "sabores",
+    "titulo": "Tour Enoturístico",
+    "descripcion": "Visita a bodega con degustación. Traslado opcional.",
+    "precioPorPersona": 60000,
+    "minPersonas": 1,
+    "ubicacion": "Luján de Cuyo",
+    "img": "../images/sabores-01.avif",
+    "badgeClass": "badge--sabores"
+  }
+]
+

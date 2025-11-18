@@ -9,8 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("formLogin");
   if (form) {
     console.log("Login detectado ✅");
+
     form.addEventListener("submit", (e) => {
       e.preventDefault();
+
       const email = (document.getElementById("email")?.value || "").trim();
       const password = (document.getElementById("password")?.value || "").trim();
 
@@ -21,6 +23,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (email === "demo@demo.com" && password === "123456") {
         localStorage.setItem("isAuthenticated", "true");
+
+        const user = {
+          email: email,        
+          nombre: "Usuario Demo", 
+          loggedAt: new Date().toISOString() 
+        };
+
+        // Se guarda el objeto en sessionStorage
+        sessionStorage.setItem("currentUser", JSON.stringify(user));
+
         window.location.href = "../index.html"; 
         return;
       }
@@ -40,8 +52,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const confirmar = confirm("¿Querés cerrar sesión?");
     if (!confirmar) return;
 
-    
+    // Limpiamos tanto localStorage como sessionStorage
     localStorage.removeItem("isAuthenticated");
+    sessionStorage.removeItem("currentUser");
 
     
     const enPages = location.pathname.includes("/pages/");

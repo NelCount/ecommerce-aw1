@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Carrito</title>
+
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="../index.html">🏠 Home</a>
+            <a href="ExploraCiudad.html">Explora la Ciudad</a>
+            <a href="ViveAventura.html">Vive la Aventura</a>
+            <a href="SaboresTradiciones.html">Sabores & Tradiciones</a>
+            <a href="carrito.html" class="active">🛒 Carrito</a>
+        </div>
+        <div class="nav-actions">
+            <button data-logout id="logoutBtn" class="btn btn--primary">Logout</button>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top:2rem;">
+        <h1>🛒 Mi Carrito</h1>
+
+        <section id="cartItems" class="cart-container">
+            <!-- Acá se cargan los productos -->
+        </section>
+
+        <div id="cartTotal" class="cart-total">
+            <!-- Se calcula el total -->
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../js/data/auth.js" defer></script>
+    <script src="../js/data/pagesData.js" defer></script>
+    <script src="../js/navbar.js" defer></script>
+
+    <!-- Helpers del carrito -->
+    <script src="../js/components/cartStorage.js" defer></script>
+
+    <!-- Script que renderiza el carrito -->
+    <script src="../js/components/cartView.js" defer></script>
+
+</body>
+</html>

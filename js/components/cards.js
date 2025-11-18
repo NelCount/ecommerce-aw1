@@ -9,11 +9,11 @@ const moneyAR = new Intl.NumberFormat("es-AR", {
 
 /**
  * Crea el HTML de una card a partir de una experiencia/producto
- * @param {Object} exp - Objeto experiencia (viene del JSON)
+ * @param {Object} exp - Objeto experiencia (viene del JSON / pagesData)
  * @returns {string} - HTML de la card
  */
 function createCard(exp) {
-  // Cantidad inicial de personas (usa minPersonas o 1 por defecto)
+  // Cantidad inicial de personas (usa 1 por defecto)
   const qty = exp.minPersonas ?? 1;
   // Total inicial = precio por persona * cantidad
   const total = exp.precioPorPersona * qty;
@@ -24,7 +24,8 @@ function createCard(exp) {
     exp.categoria === "sabores"  ? "card--sabores"  : "card--ciudad";
 
   // Devolvemos un string de HTML con toda la estructura de la card
-  // Agrego data-* con info útil para los botones + / - / reservar
+  // Agrego data-* con info para los botones + / - / reservar
+  // Agregamos data-categoria y data-img para el carrito
   return `
   <article 
     class="card ${cardMod}" 
@@ -33,6 +34,8 @@ function createCard(exp) {
     data-precio="${exp.precioPorPersona}"
     data-min="${exp.minPersonas ?? 1}"
     data-max="${exp.maxPersonas ?? ''}"
+    data-categoria="${exp.categoria}"
+    data-img="${exp.img}"
   >
     <div class="card__media">
       <img src="${exp.img}" alt="${exp.titulo}" class="card__img">
@@ -106,7 +109,7 @@ function createCard(exp) {
  * @param {HTMLElement} container - Contenedor .cards.container donde se pintan las cards
  */
 function renderCards(data = [], container) {
-  // Si no nos pasan contenedor, buscamos el primero
+  // Si pasa contenedor, usamos ese; si no, buscamos el primero
   const target = container ?? document.querySelector(".cards.container");
   if (!target) {
     console.warn("No se encontró .cards.container para renderizar las cards");
@@ -132,10 +135,13 @@ function renderCards(data = [], container) {
     if (!card) return;
 
     // Leemos los datos de la card desde los data-*
-    const titulo = card.dataset.titulo;
-    const precio = Number(card.dataset.precio);
-    const min = Number(card.dataset.min || 1);
-    const max = card.dataset.max ? Number(card.dataset.max) : Infinity;
+    const id        = Number(card.dataset.id);
+    const titulo    = card.dataset.titulo;
+    const precio    = Number(card.dataset.precio);
+    const min       = Number(card.dataset.min || 1);
+    const max       = card.dataset.max ? Number(card.dataset.max) : Infinity;
+    const categoria = card.dataset.categoria;
+    const img       = card.dataset.img;
 
     // Buscamos los elementos de cantidad y total dentro de la card
     const qtyEl   = card.querySelector("[data-role='qty']");
@@ -152,12 +158,36 @@ function renderCards(data = [], container) {
     if (action === "dec") qty = Math.max(min, qty - 1);
     if (action === "inc") qty = Math.min(max, qty + 1);
 
-    // Acción de reservar: mostramos un alert con el detalle
+    // ============================
+    // Acción de reservar → CARRITO
+    // ============================
     if (action === "reservar") {
-      alert(`Reservaste "${titulo}" para ${qty} persona(s). Total: ${moneyAR.format(precio * qty)}`);
-      return;
+      // Armamos el objeto producto que se guarda en el carrito
+      const product = {
+        id: id,               
+        titulo: titulo,        
+        precio: precio,        
+        imagen: img,           
+        categoria: categoria,  
+        cantidad: qty         
+      };
+
+      // Llamamos al helper de carrito (definido en cartStorage.js)
+      if (typeof addToCart === "function") {
+        addToCart(product);
+      } else {
+        console.warn("addToCart no está disponible. ¿Cargaste cartStorage.js antes de cards.js?");
+      }
+
+      // Mensaje al usuario 
+      alert(`Reservaste "${titulo}" para ${qty} persona(s).\nTotal: ${moneyAR.format(precio * qty)}`);
+
+      return; 
     }
 
+    // ============================
+    // Si fue + o −, solo actualizamos UI
+    // ============================
     // Actualizamos la UI: cantidad y total
     qtyEl.textContent = qty;
     totalEl.textContent = moneyAR.format(precio * qty);
@@ -172,7 +202,7 @@ function renderCards(data = [], container) {
 document.addEventListener("DOMContentLoaded", () => {
   // Buscamos secciones de categoría (páginas Explora/Vive/Sabores)
   const categorySections = document.querySelectorAll(".cards.container[data-category]");
-  // Buscamos secciones de home con 2-3 productos por categoría
+  
   const homeSections = document.querySelectorAll(".cards.container[data-home-category]");
 
   // Si no hay secciones donde pintar cards, no hacemos nada
@@ -183,8 +213,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Detectamos la ruta correcta del JSON según si estamos en /pages o en la raíz
   const DATA_URL = window.location.pathname.includes("/pages/")
-    ? "../data/productos.json"  // desde páginas internas
-    : "data/productos.json";    // desde index en la raíz
+    ? "../data/productos.json"  // desde páginas 
+    : "data/productos.json";    // desde index 
 
   // Pedimos los datos al JSON usando fetch
   fetch(DATA_URL)
@@ -204,19 +234,14 @@ document.addEventListener("DOMContentLoaded", () => {
         renderCards(filtrados, section);
       });
 
-      // ✅ Caso 2: home con 2-3 productos por categoría
-      homeSections.forEach((section) => {
-        const categoria = section.dataset.homeCategory; // "ciudad", "aventura", "sabores"
-        const filtrados = productos.filter((exp) => exp.categoria === categoria);
-        const limitados = filtrados.slice(0, 3); // nos quedamos solo con 3
-        renderCards(limitados, section);
-      });
+      
     })
     .catch((error) => {
       // Si hay algún error (ruta, JSON mal formado, etc.), lo mostramos en consola
       console.error("Error cargando los productos:", error);
     });
 });
+
 
 
 

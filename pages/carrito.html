@@ -24,23 +24,32 @@
             </div>
         </nav>
 
-        <main class="container" style="padding-top:2rem;">
-            <h1>🛒 Mi Carrito</h1>
+        <main class="container">
+            <h1>Mi Carrito</h1>
 
-            <section id="cartItems" class="cart-container">
-                <!-- Acá se cargan los productos -->
+            <!-- Mensaje cuando no hay items -->
+            <p data-cart-empty class="cart-empty">
+                No tenés reservas en el carrito.
+            </p>
+
+            <!-- Lista de items del carrito -->
+            <section data-cart-list class="cart-list">
+                
             </section>
 
-            <div id="cartTotal" class="cart-total">
-                <!-- Se calcula el total -->
-            </div>
+            <!-- Resumen de total -->
+            <section class="cart-summary">
+                <span>Total:</span>
+                <strong data-cart-total>$ 0</strong>
+            </section>
         </main>
+
 
     <script src="../js/auth.js" defer></script>
     <script src="../js/pagesData.js" defer></script>   
     <script src="../js/navbar.js" defer></script>
     <script src="../js/components/cartStorage.js" defer></script>
-    <script src="../js/components/cards.js" defer></script>
+    <script src="../js/components/cartView.js" defer></script>
 
     </body>
 </html>

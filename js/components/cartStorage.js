@@ -38,6 +38,7 @@ function saveCart(cartArray) {
 // Agrega un producto al carrito
 // - product debe ser un objeto con al menos: id, titulo, precio, imagen, categoria
 function addToCart(product) {
+    console.log("[CART] agregando producto:", product);
   // 1) Traemos el carrito actual
   const cart = getCart();
 
@@ -65,4 +66,12 @@ function addToCart(product) {
 
   // 4) Mensaje de actualización por consola
   console.log("Carrito actualizado:", cart);
+}
+
+// Elimina un producto por ID
+function removeFromCart(productId) {
+  const cart = getCart();
+  const filtered = cart.filter(item => item.id !== productId);
+  saveCart(filtered);
+  console.log("[CART] item eliminado:", productId);
 }

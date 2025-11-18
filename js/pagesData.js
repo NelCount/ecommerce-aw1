@@ -8,4 +8,3 @@ const pages = [
   { id: "carrito", title: "🛒 Carrito", url: "/pages/carrito.html", requiresAuth: true}
  ];
 
-export default pages;

@@ -44,8 +44,8 @@ html, body {
 }
 
 /*Enlaces accesibles */
-a {
-  color: #0a66c2;          
+a:not(.btn) {
+  color: #0a66c2;
   text-decoration: none;
 }
 a:hover { text-decoration: underline; }
@@ -91,7 +91,7 @@ h1, h2, h3 {
 /* Botón principal con color de ExploraGo */
 .btn--primary {
   background-color: var(--color-primary); 
-  color: #071b1b;                         
+  color: #071b1b !important;                         
   box-shadow: var(--shadow-1);
 }
 .btn--primary:hover {
@@ -532,11 +532,11 @@ h1, h2, h3 {
   pointer-events: none; 
 }
 
-/* margen izquierdo */
+/* margen izquierdo 
 section.hero{
   padding-inline-start: 2rem;
   text-align: left;
-}
+}*/
 
 /* Control de cantidad dentro del footer de la card */
 .card__footer-left {
@@ -720,6 +720,98 @@ section.hero{
 .btn-danger:active {
     transform: scale(0.97);            
 }
+
+/* =========================================================
+   HERO DEL HOME (ExploraGo) - SOLO INDEX
+   ========================================================= */
+
+.home-hero {
+  position: relative;
+  min-height: 70vh;
+  background-image: url("../images/index.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2.5rem 3rem;
+}
+
+.home-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.home-hero__content {
+  position: relative;
+  max-width: 700px;
+  color: var(--color-text);
+  text-align: left;
+  animation: hero-fade-up 1s ease-out;
+}
+
+.home-hero__title {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-display);
+}
+
+.home-hero__subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-display);
+}
+
+.home-hero__text {
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.home-hero__btn {
+  font-size: 1.1rem;
+  padding: 0.9rem 2rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-2);
+}
+
+.home-hero__btn:hover {
+  transform: translateY(-2px);
+}
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .home-hero {
+    min-height: 60vh;
+    padding: 2rem 1.5rem;
+    justify-content: center;
+  }
+
+  .home-hero__content {
+    text-align: center;
+  }
+
+  .home-hero__title {
+    font-size: 2.2rem;
+  }
+
+  .home-hero__subtitle {
+    font-size: 1.15rem;
+  }
+}
+
+
 
 
 

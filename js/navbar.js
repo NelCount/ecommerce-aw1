@@ -147,6 +147,34 @@ document.addEventListener("DOMContentLoaded", () => {
   attachNavGuard();
 });
 
+// ==============================
+// Menú hamburguesa responsive
+// ==============================
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Obtenemos el botón hamburguesa y el contenedor de links
+  const navToggle = document.getElementById("navToggle"); // Botón ☰
+  const navLinks = document.getElementById("navLinks");   // Div con enlaces
+
+  // Si no existen, salimos (por seguridad)
+  if (!navToggle || !navLinks) return;
+
+  // Click en la hamburguesa: abre/cierra el menú
+  navToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+
+  // Opcional: cerrar el menú cuando hago click en un link (mobile)
+  navLinks.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+    });
+  });
+});
+
+
+
+
 
 
 

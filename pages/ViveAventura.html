@@ -13,18 +13,28 @@
         <link rel="stylesheet" href="../css/styles.css">
     </head>
     <body>
+        <!-- Navbar -->
         <nav class="navbar">
-            <div class="nav-links">
-                <a href="../index.html">🏠 Home</a> <!-- // OJO: sube un nivel -->
-                <a href="login.html">🔑 Login</a>
-                <a href="registro.html">📄 Registro</a>
+        
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+                ☰
+            </button>
+
+            <!-- Links de navegación -->
+            <div class="nav-links" id="navLinks">
+                <!-- Desde /pages volvemos una carpeta para ir al index -->
+                <a href="../index.html">🏠 Home</a>
                 <a href="ExploraCiudad.html">Explora la Ciudad</a>
                 <a href="ViveAventura.html">Vive la Aventura</a>
                 <a href="SaboresTradiciones.html">Sabores & Tradiciones</a>
-                <a href="carrito.html">🛒 Carrito</a>
+                <a href="carrito.html" class="active">🛒 Carrito</a>
             </div>
+
+            <!-- Botón Logout -->
             <div class="nav-actions">
-                <button data-logout id="logoutBtn" type="button" class="btn btn--primary">Logout</button>
+                <button data-logout id="logoutBtn" class="btn btn--primary">
+                Logout
+                </button>
             </div>
         </nav>
 

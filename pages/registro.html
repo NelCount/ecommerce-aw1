@@ -13,18 +13,27 @@
         <link rel="stylesheet" href="../css/styles.css">        
     </head>
     <body>
+        <!-- Navbar -->
         <nav class="navbar">
-            <div class="nav-links">
-                <a href="../index.html">🏠 Home</a> <!-- // OJO: sube un nivel -->
-                <a href="login.html">🔑 Login</a>
-                <a href="registro.html">📄 Registro</a>
-                <a href="ExploraCiudad.html">Explora la Ciudad</a>
-                <a href="ViveAventura.html">Vive la Aventura</a>
-                <a href="SaboresTradiciones.html">Sabores & Tradiciones</a>
-            </div>
-            <div class="nav-actions">
-                <button data-logout id="logoutBtn" type="button" class="btn btn--primary">Logout</button>
-            </div>
+          <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+            ☰
+          </button>
+
+          <div class="nav-links" id="navLinks">
+            <a href="../index.html">🏠 Home</a>
+            <a href="login.html">🔑 Login</a>
+            <a href="registro.html" class="active">📄 Registro</a>
+            <a href="ExploraCiudad.html">Explora la Ciudad</a>
+            <a href="ViveAventura.html">Vive la Aventura</a>
+            <a href="SaboresTradiciones.html">Sabores & Tradiciones</a>
+            <a href="carrito.html">🛒 Carrito</a>
+          </div>
+
+          <div class="nav-actions">
+            <button data-logout id="logoutBtn" type="button" class="btn btn--primary">
+              Logout
+            </button>
+          </div>
         </nav>
         
         <main class="container auth-wrapper">
@@ -87,6 +96,6 @@
           </div>
         </main>
     <script src="../js/auth.js" defer></script>
-    <script type="module" src="/js/navbar.js"></script>
+    <script src="../js/navbar.js" defer></script>
     </body>
 </html>

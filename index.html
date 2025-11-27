@@ -15,7 +15,13 @@
     </head>
     <body>
         <nav class="navbar">
-            <div class="nav-links">
+            <!-- Botón hamburguesa (solo se ve en pantallas chicas) -->
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+                ☰
+            </button>
+
+            <!-- Links de navegación -->
+            <div class="nav-links" id="navLinks">
                 <a href="index.html">🏠 Home</a>
                 <a href="pages/login.html">🔑 Login</a>
                 <a href="pages/registro.html">📄 Registro</a>
@@ -25,10 +31,14 @@
                 <a href="pages/carrito.html">🛒 Carrito</a>
             </div>
 
+            <!-- Botón de Logout -->
             <div class="nav-actions">
-                <button data-logout id="logoutBtn" type="button" class="btn btn--primary">Logout</button>
+                <button data-logout id="logoutBtn" type="button" class="btn btn--primary">
+                Logout
+                </button>
             </div>
         </nav>
+
 
         <section class="home-hero">
             <div class="home-hero__overlay"></div>
@@ -47,9 +57,16 @@
                 </a>
             </div>
         </section>
+        <footer class="bg-dark text-light py-4">
+            <div class="container text-center">
+            <p class="mb-1">
+                &copy; 2025 ExploraGo · Todos los derechos reservados
+            </p>          
+            </div>
+        </footer>
     <script src="js/auth.js" defer></script>
     <script src="js/data/pagesData.js" defer></script>
-    <script type="module" src="/js/navbar.js"></script>
+    <script src="js/navbar.js" defer></script>
     <script src="./js/homeHero.js" defer></script>
     </body>
 </html>

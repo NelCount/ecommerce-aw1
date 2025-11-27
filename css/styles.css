@@ -43,6 +43,16 @@ html, body {
   line-height: 1.6;               
 }
 
+html, body {
+  height: 100%;              
+  margin: 0;                 
+}
+
+body {
+  display: flex;             
+  flex-direction: column;    
+}
+
 /*Enlaces accesibles */
 a:not(.btn) {
   color: #0a66c2;
@@ -158,6 +168,47 @@ h1, h2, h3 {
   align-items: center;
   gap: 0.5rem;
   flex: 0 0 auto;
+}
+
+/* Botón hamburguesa: oculto en escritorio */
+.nav-toggle {
+  display: none;              /* En desktop no se ve */
+  background: none;           /* Sin fondo por defecto */
+  border: none;               /* Sin borde */
+  font-size: 2rem;            /* Tamaño del ícono ☰ */
+  color: #ffffff;             /* Color del ícono */
+  cursor: pointer;            /* Mano al pasar */
+}
+
+/* --- Vista mobile --- */
+@media (max-width: 768px) {
+  .navbar {
+    position: relative;       /* Para posicionar el menú desplegable */
+  }
+
+  .nav-links {
+    display: none;            /* Ocultamos los enlaces */
+    flex-direction: column;
+    background-color: #0b1120;  /* color del navbar */
+    position: absolute;
+    top: 70px;                  /* bajo el navbar */
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    gap: 15px;
+    text-align: center;
+    z-index: 1000;
+  }
+
+  /* Mostrar hamburguesa en mobile */
+  .nav-toggle {
+    display: block;
+  }
+
+  /* Cuando se active, se muestra */
+  .nav-links.active {
+    display: flex;
+  }
 }
 
 /* ===== RESPONSIVE ===== */
@@ -722,7 +773,7 @@ section.hero{
 }
 
 /* =========================================================
-   HERO DEL HOME (ExploraGo) - SOLO INDEX
+   HERO DEL HOME (ExploraGo) - 
    ========================================================= */
 
 .home-hero {
@@ -735,6 +786,7 @@ section.hero{
   align-items: center;
   justify-content: flex-start;
   padding: 2.5rem 3rem;
+  flex: 1; 
 }
 
 .home-hero__overlay {
@@ -810,6 +862,19 @@ section.hero{
     font-size: 1.15rem;
   }
 }
+
+/* =========================================================
+   Footer (ExploraGo) - 
+   ========================================================= */
+
+footer {
+  width: 100%;              
+  text-align: center;
+  flex-shrink: 0;      
+}
+
+
+
 
 
 
